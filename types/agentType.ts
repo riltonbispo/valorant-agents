@@ -4,4 +4,8 @@ export interface AgentType {
   description: string;
   fullPortrait: string;
   displayIcon: string;
+  role: {
+    uuid: string;
+    displayName: string;
+  };
 }
