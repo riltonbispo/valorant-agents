@@ -1,20 +1,23 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { getAgents } from "@/services/api";
+import React from "react";
 import { AgentType } from "@/types/agentType";
 import Card from "../components/Card/card";
 import style from "./page.module.css";
 
-const page = () => {
-  const [agents, setAgents] = useState<AgentType[]>([]);
+import axios from "axios";
 
-  useEffect(() => {
-    getAgents()
-      .then((data) => {
-        setAgents(data);
-      })
-      .catch((err) => console.log("Error", err));
-  }, []);
+async function getAgents() {
+  try {
+    const res = await axios.get(
+      "https://valorant-api.com/v1/agents?isPlayableCharacter=true"
+    );
+    return res.data.data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const page = async () => {
+  const agents: AgentType[] = await getAgents();
 
   return (
     <div className={style.container}>

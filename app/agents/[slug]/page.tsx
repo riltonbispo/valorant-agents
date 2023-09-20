@@ -1,21 +1,21 @@
-"use client";
-
-import { getUnicAgent } from "@/services/api";
 import { AgentType } from "@/types/agentType";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import style from "./page.module.css";
 
-const Agent = ({ params }: { params: { slug: string } }) => {
-  const [agent, setAgent] = useState<AgentType | null>(null);
+import axios from "axios";
 
-  useEffect(() => {
-    getUnicAgent(params.slug)
-      .then((data) => {
-        setAgent(data);
-      })
-      .catch((err) => console.log("Error", err));
-  }, []);
+async function getAgent(id: string) {
+  try {
+    const res = await axios.get(`https://valorant-api.com/v1/agents/${id}`);
+    return res.data.data;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const Agent = async ({ params }: { params: { slug: string } }) => {
+  const agent: AgentType = await getAgent(params.slug);
 
   return (
     <div className={style.container}>
