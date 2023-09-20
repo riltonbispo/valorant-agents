@@ -1,0 +1,85 @@
+.container {
+  margin-top: 3.125rem;
+  padding-inline: 4.375rem;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.info {
+}
+
+.info__title {
+  font-size: 119px;
+  font-weight: 900;
+}
+
+.info__description {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.abilites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-height: 300px;
+  overflow-y: auto; 
+  padding-right: 20px;
+}
+
+.abilites::-webkit-scrollbar {
+  width: 6px; /* Largura do scroll vertical */
+}
+
+.abilites::-webkit-scrollbar-track {
+  background: #161515; /* Cor do fundo da track */
+}
+
+.abilites::-webkit-scrollbar-thumb {
+  background: var(--red-600); /* Cor do thumb (a parte que você arrasta) */
+  border-radius: 5px; /* Bordas arredondadas do thumb */
+}
+
+.abilites::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Cor do thumb ao passar o mouse por cima */
+}
+
+.abilite__container {
+  display: flex;
+  gap: 12px;
+}
+
+.abilite__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+
+.abilite__image {
+  height: 50px;
+}
+
+.abilite__title {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.abilite__description {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.image {
+}
+
+.image img {
+  height: 90vh; 
+}
+
