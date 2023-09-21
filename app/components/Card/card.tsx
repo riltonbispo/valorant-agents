@@ -1,7 +1,7 @@
 import { AgentType } from "@/types/agentType";
 import React from "react";
 import Link from "next/link";
-import * as C from "./Card.style.ts";
+import * as C from "./Card.style";
 
 const Card = ({ agent }: { agent: AgentType }) => {
   return (
