@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import {
   Container,
   Content,
@@ -19,7 +18,7 @@ export default function Home() {
           reprehenderit rerum. Atque non quod modi hic explicabo sint nam
           nesciunt facilis?
         </Description>
-        <Link href="/agents">Ver Agents</Link>
+        <StyledLink href="/agents">Ver Agents</StyledLink>
       </Content>
     </Container>
   );

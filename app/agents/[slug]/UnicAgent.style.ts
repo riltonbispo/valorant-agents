@@ -44,23 +44,30 @@ const AbilitiesAnimation = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  margin-top: 3.125rem;
+export const Container = styled.div<{ imageUrl: string }>`
   padding-inline: 4.375rem;
+  padding-top: 80px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    padding-inline: 1.25rem;
+  }
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  flex-shrink: 1;
+  flex-basis: 900px;
 `;
 
 export const Info = styled.div``;
 
 export const InfoTitle = styled.h2`
-  font-size: 119px;
+  font-size: clamp(1rem, 10vw, 7.4375rem);
   font-weight: 900;
   animation: ${TitleAnimation} 1s 1s backwards;
 `;
@@ -77,7 +84,7 @@ export const Abilities = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  max-height: 300px;
+  max-height: 18.75rem;
   overflow-y: auto;
   padding-right: 10px;
   animation: ${AbilitiesAnimation} 2s 1s backwards;
@@ -130,5 +137,11 @@ export const AbilityDescription = styled.p`
 
 export const Image = styled.img`
   animation: ${ImageAnimation} 2s;
-  height: 90vh;
+  flex-shrink: 1;
+  flex-grow: 0;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

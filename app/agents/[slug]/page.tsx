@@ -19,7 +19,7 @@ const Agent = async ({ params }: { params: { slug: string } }) => {
   const agent: AgentType = await getAgent(params.slug);
 
   return (
-    <C.Container>
+    <C.Container imageUrl={agent.fullPortrait}>
       <C.Content>
         <C.Info>
           <C.InfoTitle>{agent?.displayName}</C.InfoTitle>

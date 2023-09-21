@@ -14,14 +14,8 @@ export const Container = styled.div`
   justify-content: center;
   padding-inline: 6.875rem;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+  @media (max-width: 768px) {
+    padding-inline: 1.25rem;
   }
 `;
 
@@ -35,14 +29,14 @@ export const Content = styled.div`
 export const Title = styled.h1`
   font-family: Montserrat;
   text-transform: uppercase;
-  font-size: 8.125rem;
   font-weight: 900;
+  font-size: clamp(1rem, 10vw, 8.125rem);
 `;
 
 export const Description = styled.p`
   font-family: Montserrat;
-  font-size: 23px;
-  width: 678px;
+  font-size: clamp(1rem, 10vw, 1.4375rem);
+  width: clamp(20rem, 75%, 42.375rem);
   font-weight: 500;
 `;
 
