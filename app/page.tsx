@@ -1,24 +1,26 @@
-"use client";
 import React from "react";
 import Link from "next/link";
-import style from "./page.module.css";
-import Header from "./components/Header/Header";
+import {
+  Container,
+  Content,
+  Title,
+  Description,
+  Link as StyledLink,
+} from "./Home.style";
 
 export default function Home() {
   return (
-    <div className={style.container}>
-      <div className={style.content}>
-        <h1 className={style.title}>Valorant Agents</h1>
-        <p className={style.description}>
+    <Container>
+      <Content>
+        <Title>Valorant Agents</Title>
+        <Description>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
           delectus fuga possimus natus laudantium eveniet expedita in nostrum
           reprehenderit rerum. Atque non quod modi hic explicabo sint nam
           nesciunt facilis?
-        </p>
-        <Link href="/agents" className={style.link}>
-          Ver Agents
-        </Link>
-      </div>
-    </div>
+        </Description>
+        <Link href="/agents">Ver Agents</Link>
+      </Content>
+    </Container>
   );
 }

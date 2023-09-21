@@ -1,7 +1,7 @@
 import React from "react";
 import { AgentType } from "@/types/agentType";
 import Card from "../components/Card/card";
-import style from "./page.module.css";
+import * as C from "./Agents.style";
 
 import axios from "axios";
 
@@ -20,21 +20,23 @@ const page = async () => {
   const agents: AgentType[] = await getAgents();
 
   return (
-    <div className={style.container}>
-      <div className={style.content}>
-        <h1 className={style.title}>Agentes Valorant</h1>
-        <p className={style.description}>
+    <C.Container>
+      <C.Content>
+        <C.Title>Agentes Valorant</C.Title>
+        <C.Description>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore
-        </p>
-        <ul className={style.list}>
+        </C.Description>
+        <C.List>
           {agents.map((agent) => (
-            <li key={agent.uuid} className={style.item}>
-              <Card agent={agent}></Card>
-            </li>
+            <React.Fragment key={agent.uuid}>
+              <C.Item>
+                <Card agent={agent}></Card>
+              </C.Item>
+            </React.Fragment>
           ))}
-        </ul>
-      </div>
-    </div>
+        </C.List>
+      </C.Content>
+    </C.Container>
   );
 };
 

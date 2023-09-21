@@ -1,7 +1,8 @@
 import { AgentType } from "@/types/agentType";
 import React from "react";
 
-import style from "./page.module.css";
+
+import * as C from "./UnicAgent.style";
 
 import axios from "axios";
 
@@ -18,36 +19,31 @@ const Agent = async ({ params }: { params: { slug: string } }) => {
   const agent: AgentType = await getAgent(params.slug);
 
   return (
-    <div className={style.container}>
-      <div className={style.content}>
-        <div className={style.info}>
-          <h2 className={style.info__title}>{agent?.displayName}</h2>
-          <p className={style.info__description}> {agent?.description}</p>
-        </div>
+    <C.Container>
+      <C.Content>
+        <C.Info>
+          <C.InfoTitle>{agent?.displayName}</C.InfoTitle>
+          <C.InfoDescription>{agent?.description}</C.InfoDescription>
+        </C.Info>
 
-        <div className={style.abilites}>
+        <C.Abilities>
           {agent?.abilities.map((abilite) => (
-            <div className={style.abilite__container}>
-              <img
-                src={abilite.displayIcon}
-                alt=""
-                className={style.abilite__image}
-              />
-              <div className={style.abilite__body}>
-                <h4 className={style.abilite__title}>{abilite.displayName}</h4>
-                <p className={style.abilite__description}>
+            <C.AbilityContainer>
+              <C.AbilityImage src={abilite.displayIcon} alt="" />
+              <C.AbilityBody>
+                <C.AbilityTitle>{abilite.displayName}</C.AbilityTitle>
+                <C.AbilityDescription>
                   {abilite.description}
-                </p>
-              </div>
-            </div>
+                </C.AbilityDescription>
+                <hr />
+              </C.AbilityBody>
+            </C.AbilityContainer>
           ))}
-        </div>
-      </div>
+        </C.Abilities>
+      </C.Content>
 
-      <div className={style.image}>
-        <img src={agent?.fullPortrait} alt="" />
-      </div>
-    </div>
+      <C.Image src={agent?.fullPortrait} alt="" />
+    </C.Container>
   );
 };
 

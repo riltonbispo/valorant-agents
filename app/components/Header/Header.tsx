@@ -1,25 +1,31 @@
 import React from "react";
 import Link from "next/link";
-import style from "./header.module.css";
+import {
+  Container,
+  Content,
+  List,
+  Item,
+  Link as StyledLink,
+} from "./Header.style";
 
 const Header = () => {
   return (
-    <header className={style.container}>
-      <nav className={style.content}>
-        <ul className={style.list}>
-          <li className={style.item}>
-            <Link href="/" className={style.link}>
-              Home
+    <Container>
+      <Content>
+        <List>
+          <Item>
+            <Link href="/">
+              <StyledLink>Home</StyledLink>
             </Link>
-          </li>
-          <li className={style.item}>
-            <Link href="/agents" className={style.link}>
-              Agents
+          </Item>
+          <Item>
+            <Link href="/agents">
+              <StyledLink>Agents</StyledLink>
             </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+          </Item>
+        </List>
+      </Content>
+    </Container>
   );
 };
 

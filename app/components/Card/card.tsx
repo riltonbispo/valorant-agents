@@ -1,29 +1,25 @@
 import { AgentType } from "@/types/agentType";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-
-import style from "./card.module.css";
+import * as C from "./Card.style.ts";
 
 const Card = ({ agent }: { agent: AgentType }) => {
   return (
-    <div className={style.container}>
-      <div className={style.content}>
+    <C.Container>
+      <C.Content>
         <Link href={`agents/${agent.uuid}`}>
-          <Image
+          <C.Image
             src={agent.fullPortrait}
-            height={1000}
-            width={1000}
             alt=""
-            className={style.image}
+            $bgColor={agent.backgroundGradientColors[0]}
           />
         </Link>
-        <div className={style.info}>
-          <h3 className={style.title}>{agent.displayName}</h3>
-          <span className={style.details}>{agent.role.displayName}</span>
-        </div>
-      </div>
-    </div>
+        <C.Info $bgColor={agent.backgroundGradientColors[3]}>
+          <C.Title>{agent.displayName}</C.Title>
+          <C.Details>{agent.role.displayName}</C.Details>
+        </C.Info>
+      </C.Content>
+    </C.Container>
   );
 };
 
